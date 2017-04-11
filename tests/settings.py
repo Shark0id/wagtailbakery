@@ -2,9 +2,7 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-ALLOWED_HOSTS = [
-    'testserver'
-]
+ALLOWED_HOSTS = []
 
 DATABASES = {
     'default': {
@@ -40,7 +38,6 @@ INSTALLED_APPS = [
 
     'bakery',
     'wagtailbakery',
-
     'tests',
 ]
 
@@ -115,7 +112,9 @@ USE_TZ = True
 
 WAGTAIL_SITE_NAME = 'Wagtail Bakery'
 
-# Wagtail bakery
-
 BUILD_DIR = os.path.join(BASE_DIR, 'build')
-BAKERY_VIEWS = []
+BAKERY_VIEWS = (
+    'wagtailbakery.views.AllPagesView',
+)
+
+CELERY_ALWAYS_EAGER = True
